@@ -16,6 +16,24 @@ namespace task1
             if (File.Exists(path)) FilePath = path;
         }
 
+        public void SetPath()
+        {
+            string path;
+            bool f = false;
+            do
+            {
+                Console.Write("Enter path to text file: ");
+                path = Console.ReadLine();
+
+                if (!File.Exists(path) && Path.GetExtension(path) != ".txt")
+                    Console.WriteLine("File incorrect");
+                else f = true;
+                Console.ReadKey();
+                Console.Clear();
+            } while (!f);
+            FilePath = path;
+        }
+
         public async Task ReadTextFile()
         {
             try
@@ -68,12 +86,15 @@ namespace task1
             if (words != null && words.Length > 0)
             {
                 Console.WriteLine($"Count of words: {words.Length}");
-
-                Console.WriteLine("Every 10th word: ");
-                for (int i = 9; i < words.Length; i += 10)
+                if (words.Length > 9)
                 {
-                    Console.Write(words[i] + ", ");
+                    Console.WriteLine("Every 10th word: ");
+                    for (int i = 9; i < words.Length; i += 10)
+                    {
+                        Console.Write(words[i] + ", ");
+                    }
                 }
+                else Console.WriteLine("Words are less 10!");
             }
             else Console.WriteLine("File empty!");
 

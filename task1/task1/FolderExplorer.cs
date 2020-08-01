@@ -27,8 +27,9 @@ namespace task1
                 Console.Write("Enter file path: ");
                 path = Console.ReadLine();
 
-                if (File.Exists(path)) f = true;
-                else if (Directory.Exists(path)) f = true;
+                if (Directory.Exists(path)) f = true;
+                else Console.WriteLine("Incorrect path.");
+                Console.ReadKey();
             } while (!f);
             Path = path;
             Console.Clear();

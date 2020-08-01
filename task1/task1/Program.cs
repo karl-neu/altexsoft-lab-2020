@@ -12,6 +12,7 @@ namespace task1
 
             HelpService hs = new HelpService();
             FolderExplorer fe = new FolderExplorer();
+            hs.SetPath();
             do
             {
                 Console.Clear();
@@ -22,6 +23,10 @@ namespace task1
                 Console.WriteLine(" 4. Show file explorer.");
                 Console.WriteLine(" 0. Exit.");
 
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write(" Please choose your variant: ");
+                Console.ForegroundColor = ConsoleColor.White;
+                
                 key = Console.ReadLine();
                 switch (key)
                 {
